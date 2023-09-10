@@ -1,0 +1,1182 @@
+/* start Global rolls */
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --main-color: #19c8fa;
+    --transparent-color: #0f748f;
+    --color-p: #777;
+    --section-padding: 100px;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+ul {
+    list-style: none;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* small screen */
+@media (min-width:767px) {
+    .container {
+        width: 750px;
+    }
+}
+/* medium screen */
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* large screen */
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Global rolls */
+/* Start Section */
+.section {
+    text-align: center;
+}
+.section .heading {
+    position: relative;
+}
+.section .heading::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    background-color: #333;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+}
+.section .heading::after {
+    content: "";
+    position: absolute;
+    border: 1px solid #333;
+    border-radius: 50%;
+    background-color: white;
+    left: 50%;
+    top: 46%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+}
+.section .heading h2 {
+    font-weight: normal;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: 0 auto 40px;
+}
+.section .heading p {
+    color: var(--color-p);
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto 100px;
+}
+@media (max-width:767px) {
+    .section .heading p {
+        width: 400px;
+    }
+}
+/* End Section */
+/* Start Header */
+/* كده احنا خلينا جزء الهيدر و اللينكات و اللوجو هيبقى فوق الخلفيه بتاعه الصوره  */
+header {
+    /* عملناها بالبوزيشن عشان تبقى فوق الصوره ومش تدايقنا  */
+    position: absolute;
+    /* هتبدأ من الشمال */
+    left: 0;
+    /* هتاخد العرض كله */
+    width: 100%;
+    /* دى عشان تظهر فوق الصوره */
+    z-index: 2;
+}
+/* كده احنا خلينا جزء الهيدر و اللينكات و اللوجو هيبقى فوق الخلفيه بتاعه الصوره  */
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    transition: 0.3s;
+    /* هنعمل نفس ارتفاع الهيدر عشان لما اللينكات تختفى يفضل الارتفاع هوا هوا وهنخليها تبدأ من 97بكسل عشان تتمدد اتوماتيك لما نعمل اى تعديل */
+    min-height: 97px;
+    /* هنعمل نفس ارتفاع الهيدر عشان لما اللينكات تختفى يفضل الارتفاع هوا هوا وهنخليها تبدأ من 97بكسل عشان تتمدد اتوماتيك لما نعمل اى تعديل */
+}
+/* لعمل الخط اللى تحت اللوجو واللينكات */
+header .container::after {
+    content: "";
+    position: absolute;
+    /* ارتفاع الخط */
+    height: 1px;
+    /* كده عملنا العرض بعد خصم 30 بكسل بتوع الهوامش الداخليه من اليمين والشمال للكونينر عشان الخط يبدأ من اول اللوجو بالظبط وينتهى عند اخر ايقونه البحث */
+    width: calc(100% - 30px);
+    /* لون الخط */
+    background-color: #a2a2a2;
+    /* دي عشان يتحرك قيمه الهامش من الشمال ويبدأ من اول اللوجو بالظبط */
+    left: 15px;
+    /* عشان يبقى تحت الاب بتاعه  */
+    bottom: 0px;
+}
+/* لعمل الخط اللى تحت اللوجو واللينكات */
+header .logo img {
+    height: 40px;
+}
+header nav {
+    /* عشان ياخد المساحه كامله */
+    flex: 1;
+    /* عشان ياخد المساحه كامله */
+    /* عشان اجيبه على اليمين واوسطه  */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* عشان اجيبه على اليمين واوسطه  */
+}
+/* دى ايقونه القائمه الخاصه باللينكات فى شاشه الموبايل فقط قبل 768بكسل */
+header nav .toggle {
+    color: white;
+    font-size: 22px;
+}
+/* دى ايقونه القائمه الخاصه باللينكات فى شاشه الموبايل فقط قبل 768بكسل */
+/* هتظهر القائمه فى 768بكسل فقط */
+@media (min-width:768px) {
+    header nav .toggle {
+        display: none;
+    }
+}
+/* هتظهر القائمه فى 768بكسل فقط */
+header nav ul {
+    /* بدل inline-block */
+    display: flex;
+    /* بدل inline-block */
+}
+/* هنخلى الينكات تختفى عند الشاشات الصغيره */
+@media (max-width:767px) {
+    header nav ul {
+        display: none;
+    }
+    /* هنا بقوله لما اعمل هوفير على الايقونه اللينكات اللى جمبها اعملى فيها التنسيقات دى  */
+    header nav .toggle:hover + ul {
+        /* اعملهالى فليكس عشان اتحكم فيها براحتى */
+        display: flex;
+        /* خليهالى على شكل اعمده بدل الصفوف */
+        flex-direction: column;
+        /* حركهالى فى الاب بتاعها */
+        position: absolute;
+        /* اقصى اليسار */
+        left: 0;
+        /* تبدأ من بعد الخط بتاع الكونتينر */
+        top: 100%;
+        /* بعرض الصفحه */
+        width: 100%;
+        /* خلفيه سوداء ولاكن شفافه */
+        background-color: rgb(0 0 0 / 50%);
+    }
+    header nav .toggle:hover + ul li a {
+        /* خليلى الهوامش الداخليه 15بكسل */
+        padding: 15px;
+    }
+}
+/* هنخلى الينكات تختفى عند الشاشات الصغيره */
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    /* عشان يقبل منى التنسيقات */
+    display: block;
+    /* عشان يقبل منى التنسيقات */
+    padding: 40px 10px;
+    font-size: 14px;
+    /* عشان الخط اللى تحت كل لينك يظهر فوق خط الكونتينير */
+    z-index: 2;
+    position: relative;
+    /* عشان الخط اللى تحت كل لينك يظهر فوق خط الكونتينير */
+}
+header nav ul li a.active,
+header nav ul li a:hover {
+    /* عشان نعمل اللون والخط اللى تحت اللينكات */
+    color: var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+    /* عشان نعمل اللون والخط اللى تحت اللينكات */
+}
+header nav .form {
+    /* ده الخط اللى قبل الايقونه */
+    border-left: 1px solid white;
+    /* ده الخط اللى قبل الايقونه */
+    /* لازم نحدد طول وعرض الايقونه */
+    width: 40px;
+    height: 30px;
+    /* لازم نحدد طول وعرض الايقونه */
+    /* مسافه قبل الايقونه */
+    margin-left: 30px;
+    /* مسافه قبل الايقونه */
+    /* (form)خلينا التحرك كله على مستوى الاب ا */
+    position: relative;
+    /* (form)خلينا التحرك كله على مستوى الاب ا */
+}
+header nav .form i {
+    /* كده هيتحرك على مستوى الاب بتاعه */
+    position: absolute;
+    /* كده هيتحرك على مستوى الاب بتاعه */
+    color: white;
+    font-size: 20px;
+    /* عشان نوسطه طوليا */
+    top: 50%;
+    transform: translateY(-50%);
+    /* عشان نوسطه طوليا */
+    /* عشان ييجى على الشمال */
+    right: 0;
+    /* عشان ييجى على الشمال */
+}
+/* End Header */
+/* Start Landing */
+/* هنا مينفعش نحط كلاس كونتينر عشان احنا عاوزين الصوره تملى الشاشه */
+.landing {
+    /* عشان تملالى الشاشه بالطول */
+    min-height: 100vh;
+    /* الخلفيه البديله فى حاله الصوره باظت */
+    background-color: #19c8fa;
+    /* الصوره */
+    background-image: url(../image/11.jpg);
+    background-size: cover;
+    /*(lading) لازم عشان باقى العناصر تتوزع جوا منه وتبقى فوقه بمعنى تبقى فوق الاب اللى هوا  */
+    position: relative;
+}
+.landing .overlay {
+    /* (lading)عشان تبقى جوا الاب اللى هوا  */
+    position: absolute;
+    /* عشان تبقى بالظبط مغطيه المحتوي */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*  الخلفيه السوداء وشفافيتها ال60 */
+    background-color: rgb(0 0 0 / 60%);
+}
+.landing .text {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(15 116 143 / 50%);
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 50px;
+}
+.landing .text .content {
+    max-width: 500px;
+    color: white;
+}
+@media (max-width:767px) {
+    .landing .text {
+        width: 100%;
+    }
+    .landing .text .content {
+        max-width: 100%;
+    }
+    .landing .main {
+        display: none;
+    }
+}
+.landing .text .content h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.landing .text .content p {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 300;
+}
+.landing .main {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+.landing .fa-angle-right {
+    right: 30px;
+}
+.landing .fa-angle-left {
+    left: 30px;
+}
+.landing .bullits {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 30px;
+}
+.landing .bullits ul {
+    display: flex;
+}
+.landing .bullits ul li {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+.landing .bullits .active {
+    background-color: var(--transparent-color);
+    border-color: var(--transparent-color);
+}
+/* End Landing */
+/* Start Services */
+.services {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+@media (min-width:768px) {
+    .services .serv-cont {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-column-gap: 30px;
+        grid-row-gap: 40px;
+    }
+}
+@media (min-width:992px) {
+    .services .serv-cont {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        grid-column-gap: 30px;
+        grid-row-gap: 40px;
+    }
+}
+.services .serv {
+    display: flex;
+    margin-bottom: 40px;
+}
+.services .serv-cont .serv i {
+    margin-right: 40px;
+}
+@media (max-width:767px) {
+    .services .serv {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .services .serv-cont .serv i{
+        margin: 0 0 20px;
+    }
+}
+.services .serv .text h3 {
+    margin-bottom: 30px;
+    color: var(--main-color);
+    font-weight: normal;
+    font-size: 30px;
+}
+.services .serv .text p {
+    color: var(--color-p);
+    line-height: 1.6;
+}
+/* End Services */
+/* Start Design */
+.design {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    position: relative;
+    background-image: url(../image/4.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 600px;
+}
+.design::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 50%);
+}
+.design .image,
+.design .text {
+    flex: 1;
+    z-index: 2;
+}
+.design .image {
+    text-align: center;
+}
+.design .image img {
+    position: relative;
+    bottom: -150px;
+}
+@media (max-width:767px) {
+    .design .image {
+        display: none;
+    }
+}
+.design .text {
+    color: white;
+    background-color: var(--transparent-color);
+    padding: 50px;
+}
+.design .text h2 {
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+.design .text ul li {
+    margin-bottom: 25px;
+}
+.design .text ul li::before {
+    /* (\) عشان لايقونه تشتغل لازم اعمل سلاش مقلوبه */
+    content: "\e163";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 20px;
+    position: relative;
+    top: 1px;
+}
+/* End Design */
+/* Start Portfolio */
+.portfolio {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.portfolio .shuffle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+.portfolio .shuffle li {
+    padding: 10px;
+}
+.portfolio .shuffle li.active {
+    background-color: var(--main-color);
+    color: white;
+}
+.portfolio .image-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.portfolio .image-container .box {
+    position: relative;
+    overflow: hidden;
+}
+@media (min-width:768px) {
+    .portfolio .image-container .box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width:993px) {
+    .portfolio .image-container .box {
+        flex-basis: 25%;
+    }
+}
+.portfolio .image-container .box img {
+    max-width: 100%;
+    transition: .3s;
+}
+.portfolio .image-container .box:hover img {
+    transform: rotate(3deg) scale(1.1);
+}
+.portfolio .image-container .box:hover .caption {
+    bottom: 0;
+}
+.portfolio .image-container .box .caption {
+    position: absolute;
+    left: 0;
+    padding: 20px;
+    width: 100%;
+    background-color: white;
+    bottom: -100%;
+    transition: .3s;
+}
+.portfolio .image-container .box .caption h4 {
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.portfolio .image-container .box .caption p {
+    color: var(--main-color);
+}
+.portfolio .more {
+    display: block;
+    padding: 15px 20px;
+    background-color: var(--main-color);
+    width: fit-content;
+    margin: 30px auto;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+/* End Portfolio */
+/* Start Video */
+.video {
+    position: relative;
+    text-align: center;
+}
+.video::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 40%);
+}
+.video video {
+    background-size: cover;
+    width: 100%;
+}
+.video .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: rgb(15 116 143 / 50%);;
+    width: 100%;
+    padding: 50px 0;
+    color: white;
+}
+@media (max-width:767px) {
+    .video .text {
+        padding: 15px 0;
+    }
+}
+.video .text h1 {
+    margin-bottom: 25px;
+    font-weight: normal;
+    font-size: 22px;
+}
+.video .text p {
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+.video .text button {
+    padding: 15px 25px;
+    color: white;
+    background-color: black;
+    border: transparent;
+    transition: .3s;
+}
+.video .text button:hover {
+    background-color: var(--main-color);
+}
+/* End Video */
+/* Start About */
+.about {
+    padding-top: var(--section-padding);
+    overflow: hidden;
+    text-align: center;
+}
+.about img {
+    position: relative;
+    bottom: -120px;
+    max-width: 100%;
+    /*(bottom) دى عشان نرجع نفس المسافه اللى نزلناها بال*/
+    margin-top: -120px;
+}
+@media (max-width:767px) {
+    .about img {
+        bottom: -90px;
+        margin-top: -90px;
+    }
+}
+/* End About */
+/* Start Stats */
+.stats {
+    background-color: var(--color-p);
+    background-image: url(../image/0.0.jpg);
+    background-size: cover;
+    position: relative;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.stats::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 40%);
+}
+.stats .container .stats-content {
+    background-color: var(--transparent-color);
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.stats .stats-content .box {
+    color: white;
+    padding: 50px;
+}
+@media (max-width: 767px) {
+    .stats .stats-content .box {
+        flex-basis: 100%;
+        border-bottom: 0.5px solid #a7a5a5;
+    }
+    /* .stats .stats-content .box:hover {
+        box-shadow: inset #a7a5a5 0px 2px 5px -2px;
+    } */
+}
+@media (min-width: 768px) {
+    .stats .stats-content .box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .stats .stats-content .box {
+        flex-basis: 25%;
+    }
+}
+.stats .stats-content .box i {
+    position: relative;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+}
+.stats .stats-content .box i::after {
+    content: "";
+    position: absolute;
+    border: 10px solid var(--transparent-color);
+    transform: rotate(45deg);
+    top: -25%;
+    left: -23%;
+    width: 40px;
+    height: 40px;
+}
+.stats .stats-content .box h1.number {
+    font-size: 50px;
+    font-weight: bold;
+}
+.stats .stats-content .box p {
+    font-size: 14px;
+}
+/* End Stats */
+/* Start Skills */
+.our-skills {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.our-skills .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+@media (min-width: 992px) {
+    /*الرئيسيين بتوع القسمين فقط (div) دى اقصد بيها ال */
+    .our-skills .container > div {
+        flex-basis: 45%;
+    }
+}
+/*عشان ينسقلى القسمين فى نفس اللحظه divيقابلك بعد ال h2 دى معانا بقوله نسقلى اول  */
+.our-skills .container > div > h2 {
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+}
+/*عشان ينسقلى القسمين فى نفس اللحظه divيقابلك بعد ال p دى معانا بقوله نسقلى اول  */
+.our-skills .container > div > p {
+    color: var(--color-p);
+    margin: 30px auto 60px;
+    line-height: 1.6;
+    text-align: center;
+}
+.our-skills .testimonials .box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.our-skills .testimonials .box img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+@media (max-width: 767px) {
+    .our-skills .testimonials .box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .our-skills .testimonials .box img {
+        margin: 0 auto 25px;
+    }
+    .our-skills .testimonials .bullets {
+        margin-bottom: 50px;
+    }
+}
+@media (min-width: 768px) {
+    .our-skills .testimonials .bullets {
+        margin-bottom: 50px;
+    }
+}
+.our-skills .testimonials .text {
+    line-height: 1.8;
+    border-bottom: 1px solid #ccc;
+}
+.our-skills .testimonials .text p {
+    text-align: right;
+    color: var(--color-p);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.our-skills .testimonials .bullets {
+    display: flex;
+    justify-content: center;
+}
+.our-skills .testimonials .bullets li {
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+    transition: .3s;
+}
+.our-skills .testimonials .bullets li:hover {
+    border-color: white;
+    background-color: var(--transparent-color);
+}
+.our-skills .testimonials .bullets li.active:hover {
+    border-color: white;
+    background-color: var(--transparent-color);
+}
+.our-skills .testimonials .bullets li.active {
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+}
+/* النصف التانى */
+.our-skills .skills .prog-holder {
+    margin-bottom: 25px;
+}
+.our-skills .skills .prog-holder h3 {
+    font-weight: normal;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.our-skills .skills .prog-holder .prog {
+    height: 30px;
+    background-color: #dedadc;
+}
+.our-skills .skills .prog span {
+    display: block;
+    background-color: var(--main-color);
+    height: 30px;
+    position: relative;
+}
+.our-skills .skills .prog span::before {
+    content: attr(data-progrss);
+    position: absolute;
+    background-color: black;
+    color: white;
+    top: -50px;
+    right: -20px;
+    border-radius: 5px;
+    padding: 8px 0px;
+    width: 40px;
+    text-align: center;
+}
+.our-skills .skills .prog span::after {
+    content: "";
+    position: absolute;
+    border: 9px solid;
+    border-color: black transparent transparent transparent;
+    right: -9px;
+    top: -17px;
+}
+/* Start quote */
+.quote {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    position: relative;
+    background-image: url(../image/00.00.jpg);
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+.quote::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 50%);
+}
+.quote .container {
+    /*  (z-index) بنخليه  عشان يظهر الكتابه بدل ال(relative) */
+    position: relative;
+}
+.quote q {
+    font-size: 35px;
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .quote q {
+        font-size: 15px;
+    }
+}
+.quote q::before {
+    content: "\f10d";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 10px;
+    color: red;
+}
+.quote q::after {
+    content: "\f10e";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 10px;
+    color: red;
+}
+/* End quote */
+/* Start Pricing */
+.pricing {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.pricing .plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    column-gap: 30px;
+    row-gap: 30px;
+    text-align: center;
+}
+.pricing .plans .box {
+    padding: 0;
+    background-color: #fcfcfc;
+}
+.pricing .plans .head {
+    padding: 40px 20px;
+    border-top: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+}
+.pricing .plans .head h3 {
+    margin: 0 auto 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+.pricing .plans .head span {
+    position: relative;
+    font-size: 60px;
+    font-weight: bold;
+}
+.pricing .plans .head span::before {
+    content: "$";
+    position: absolute;
+    left: -8px;
+    top: -5px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.pricing .plans .head span::after {
+    content: "/MO";
+    position: absolute;
+    font-size: 20px;
+    bottom: 0px;
+    right: -35px;
+    text-transform: uppercase;
+}
+.pricing .plans ul li {
+    padding: 30px 0;
+    position: relative;
+}
+.pricing .plans ul li:not(li:last-child)::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    width: 140px;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.pricing .plans .foot {
+    padding: 20px 20px;
+    border-top: 1px solid var(--main-color);
+}
+.pricing .plans .foot a {
+    text-decoration: none;
+    padding: 20px 20px;
+    border: 1px solid var(--main-color);
+    color: black;
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    transition: .3s;
+}
+.pricing .plans .foot a:hover {
+    background-color: var(--transparent-color);
+    border: transparent;
+    color: white;
+    border-radius: 3px;
+}
+.pricing .contact-text {
+    font-weight: normal;
+    font-size: 25px;
+    text-align: center;
+    margin: 30px auto 20px;
+}
+@media (max-width: 767px) {
+    .pricing .contact-text {
+        font-size: 20px;
+    }
+}
+.pricing .contact-link a {
+    display: block;
+    text-decoration: none;
+    margin: 0 auto 30px;
+    background-color: var(--main-color);
+    color: white;
+    padding: 15px 30px;
+    width: fit-content;
+    transition: .3s;
+}
+.pricing .contact-link a:hover {
+    background-color: var(--transparent-color);
+}
+/* End Pricing */
+/* Start subscribe */
+.subscribe {
+    background-image: url(../image/0.0.0.jpg);
+    background-size: cover;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    color: white;
+    position: relative;
+}
+.subscribe::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 40%);
+}
+.subscribe .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 991px) {
+    .subscribe .container {
+        flex-direction: column;
+    }
+}
+.subscribe form {
+    display: flex;
+    width: 500px;
+    max-width: 100%;
+    position: relative;
+}
+.subscribe form i {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25px;
+}
+.subscribe form input[type="email"] {
+    background: none;
+    width: calc(100% - 130px);
+    padding: 20px 20px 20px 60px;
+    border: 1px solid white;
+    border-right: none;
+    caret-color: var(--main-color);
+}
+.subscribe form input[type="submit"] {
+    width: 130px;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-left: none;
+    text-transform: uppercase
+}
+.subscribe form ::placeholder {
+    color: white;
+    font-size: 17px;
+}
+.subscribe form input[type="email"]:focus,
+.subscribe form input[type="submit"]:focus {
+    outline: none;
+}
+.subscribe p {
+    margin-left: 30px;
+    line-height: 1.6;
+}
+@media (max-width: 991px) {
+    .subscribe p {
+        margin: 20px 0 0;
+    }
+}
+@media (max-width: 767px) {
+    .subscribe p {
+    font-size: 13px;
+    }
+}
+/* End subscribe */
+/* Start contact-us */
+.contact-us {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.contact-us .contact {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .contact-us .contact {
+        flex-direction: column;
+    }
+}
+.contact-us .contact form {
+    flex-basis: 70%;
+}
+.contact-us .contact form input.main-text {
+    display: block;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+.contact-us .contact form textarea {
+    height: 200px;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.contact-us .contact form ::placeholder {
+    font-size: 17px;
+}
+.contact-us .contact form .main-text:focus {
+    outline: none;
+}
+.contact-us .contact form input[type="submit"] {
+    background-color: var(--main-color);
+    color: white;
+    padding: 20px;
+    border: none;
+    /*(float) عشان نودى الزرار على اليمين خالص بكل بساطه بدون استعمال ال  */
+    display: flex;
+    margin-left: auto;
+    cursor: pointer;
+    transition: .3s;
+}
+.contact-us .contact form input[type="submit"]:hover {
+    background-color: var(--transparent-color);
+}
+.contact-us .contact .info {
+    flex-basis: 25%;
+}
+.contact-us .contact .info h4:first-child {
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.contact-us .contact .info span.phone {
+    color: var(--color-p);
+    display: block;
+    margin-bottom: 10px;
+}
+.contact-us .contact .info h4:nth-of-type(2) {
+    font-weight: normal;
+    font-size: 20px;
+    margin: 90px auto 30px;
+}
+@media (max-width: 767px) {
+    .contact-us .contact .info h4:nth-of-type(2) {
+        margin: 30px auto;
+    }
+}
+.contact-us .contact .info address {
+    color: var(--color-p);
+    line-height: 2;
+}
+@media (max-width: 767px) {
+    .contact-us .contact .info address {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 767px) {
+    .contact-us .contact .info {
+        order: -1;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .contact-us .contact .info-text {
+        flex-basis: 45%;
+    }
+    .contact-us .contact .info h4:first-child {
+        font-weight: normal;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+}
+.footer {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-image: url(../image/0..png);
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+.footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 40%);
+}
+.footer .container {
+    position: relative;
+    color: white;
+}
+.footer img {
+    width: 200px;
+    margin: 0 auto 20px;
+}
+.footer p:first-of-type {
+    padding: 20px;
+    width: fit-content;
+    margin: 20px auto;
+    font-size: 22px;
+    border-bottom: 1px solid white;
+}
+.footer .icons i {
+    padding: 10px 15px;
+}
+.footer p:last-of-type {
+    margin: 60px 0 0;
+}
+.footer p:last-of-type span {
+    color: var(--main-color);
+    font-weight: bold;
+}
+/* End contact-us */
